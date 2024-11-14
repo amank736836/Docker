@@ -1,0 +1,236 @@
+// Docker Commands
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker
+// this command shows all the available commands in the docker
+
+// docker images
+// this command shows all the images available in the local machine
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker ps
+// this command shows all the containers running in the local machine
+
+// docker ps -a
+// this command shows all the containers available in the local machine
+
+// docker ps -q
+// this command shows the ids of all the containers running in the local machine
+
+// docker ps -aq
+// this command shows the ids of all the containers available in the local machine
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker stop <container-id>
+// this command stops the container with the given id
+
+// docker stop <container-name>
+// this command stops the container with the given name
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker rm <container-id>
+// this command removes the container with the given id
+
+// docker rm <container-name>
+// this command removes the container with the given name
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker rmi <image-id>
+// this command removes the image with the given id
+
+// docker rmi <image-name>
+// this command removes the image with the given name
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker pull <image-name>
+// this command pulls the image from the docker hub
+
+// docker pull <image-name>:<tag>
+// this command pulls the image with the given tag from the docker hub
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker build -t <image-name> <path>
+// this command builds the image with the given name from the given path
+
+// docker build -t <image-name>:<tag> <path>
+// this command builds the image with the given name and tag from the given path
+
+// docker build -t <image-name> -f <file-name> <path>
+// this command builds the image with the given name from the given path and file
+
+// docker build -t <image-name>:<tag> -f <file-name> <path>
+// this command builds the image with the given name and tag from the given path and file
+
+// docker build -t <image-name> --build-arg <argument-name>=<argument-value> <path>
+// this command builds the image with the given name from the given path and argument
+
+// docker build -t <image-name>:<tag> --build-arg <argument-name>=<argument-value> <path>
+// this command builds the image with the given name and tag from the given path and argument
+
+// docker build -t <image-name> --build-arg <argument-name>=<argument-value> -f <file-name> <path>
+// this command builds the image with the given name from the given path, file and argument
+
+// docker build -t <image-name>:<tag> --build-arg <argument-name>=<argument-value> -f <file-name> <path>
+// this command builds the image with the given name and tag from the given path, file and argument
+
+// docker build --help
+// this command shows the help for the build command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run <image-id>
+// this command runs the image in the docker container
+
+// docker run <image-name>
+// this command runs the image in the docker container and pulls the image if it is not available in the local machine
+
+// docker run <image-name>:<tag>
+// this command runs the image with the given tag in the docker container
+
+// docker run <image-name> <command>
+// this command runs the image in the docker container and executes the given command
+
+// docker run <image-name>:<tag> <command>
+// this command runs the image with the given tag in the docker container and executes the given command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run -d <image-name>
+// this command runs the image in the docker container in the background
+
+// docker run -d <image-name> <command>
+// this command runs the image in the docker container in the background and executes the given command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run -i <image-name>
+// this command runs the image in the docker container in the interactive mode
+
+// docker run -i <image-name> <command>
+// this command runs the image in the docker container in the interactive mode and executes the given command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run -t <image-name>
+// this command runs the image in the docker container in the terminal mode
+
+// docker run -t <image-name> <command>
+// this command runs the image in the docker container in the terminal mode and executes the given command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run -it <image-name>
+// this command runs the image in the docker container in the interactive mode
+
+// docker run -it <image-name> <command>
+// this command runs the image in the docker container in the interactive and terminal mode and executes the given command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run -p <port> <image-name>
+// this command runs the image in the docker container and maps the port of the local machine to the port of the docker container
+
+// docker run -p <port>:<port> <image-name>
+// this command runs the image in the docker container and maps the port of the local machine to the port of the docker container
+// left side of the colon is the port of the local machine and right side of the colon is the port of the docker container
+
+// docker run -p <port>:<port>/<protocol> <image-name>
+// this command runs the image in the docker container and maps the port of the local machine to the port of the docker container with the given protocol
+
+// docker run -p <port>:<port>/<protocol> <image-name>
+// this command runs the image in the docker container and maps the port of the local machine to the port of the docker container with the given protocol
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run -e <environment-variable>=<value> <image-name>
+// this command runs the image in the docker container and sets the environment variable with the given value
+
+// docker run --env <environment-variable>=<value> <image-name>
+// this command runs the image in the docker container and sets the environment variable with the given value
+
+// docker run --env-file <file-name> <image-name>
+// this command runs the image in the docker container and sets the environment variables from the file
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run --name <container-name> <image-name>
+// this command runs the image in the docker container and sets the name of the container
+
+// docker run --network <network-name> <image-name>
+// this command runs the image in the docker container and sets the network of the container
+
+// docker run --network-alias <alias-name> <image-name>
+// this command runs the image in the docker container and sets the network alias of the container
+
+// docker run --restart <restart-policy> <image-name>
+// this command runs the image in the docker container and sets the restart policy of the container
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker run --rm <image-name>
+// this command runs the image in the docker container and removes the container after the container is stopped
+
+// docker run -v <volume-name>:<path> <image-name>
+// this command runs the image in the docker container and mounts the volume to the path of the docker container
+
+// docker run -v <path>:<path> <image-name>
+// this command runs the image in the docker container and mounts the path of the local machine to the path of the docker container
+
+// docker run --volume <volume-name>:<path> <image-name>
+// this command runs the image in the docker container and mounts the volume to the path of the docker container
+
+// docker run --volume <path>:<path> <image-name>
+// this command runs the image in the docker container and mounts the path of the local machine to the path of the docker container
+
+// docker run -v <volume-name>:<path>:ro <image-name>
+// this command runs the image in the docker container and mounts the volume to the path of the docker container in the read-only mode
+
+// docker run -v <path>:<path>:ro <image-name>
+// this command runs the image in the docker container and mounts the path of the local machine to the path of the docker container in the read-only mode
+
+// docker run --volume <volume-name>:<path>:ro <image-name>
+// this command runs the image in the docker container and mounts the volume to the path of the docker container in the read-only mode
+
+// docker run --volume <path>:<path>:ro <image-name>
+// this command runs the image in the docker container and mounts the path of the local machine to the path of the docker container in the read-only mode
+
+// docker run --help
+// this command shows the help for the run command
