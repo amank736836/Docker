@@ -21,6 +21,7 @@ mongoose
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
+    console.log("Connection Failed");
     console.log(err);
   });
 
@@ -29,8 +30,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: " * ", credentials: true }));
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
+app.get("/", async (req, res) => {
+  // createUsers();
+  const num = Math.floor(Math.random() * 1000) + 1;
+  await createUser("John", `johnDoe${num}@gmail.com`);
+  res.send(`Hello World! User Created With Email: johnDoe${num}@gmail.com`);
+});
+
+app.get("/delete", (req, res) => {
+  mongoose.connection.dropDatabase();
+  res.send("Database Deleted");
 });
 
 // your routes here
@@ -48,42 +57,49 @@ app.listen(port, () =>
   console.log("Server is working on Port:" + port + " in " + envMode + " Mode.")
 );
 
+const schema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+});
+
+const User = mongoose.model("User", schema);
+
 const createUser = async (name: string, email: string) => {
-  const schema = new mongoose.Schema({
-    name: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
+  const user = new User({
+    name,
+    email,
   });
 
-  const User = mongoose.model("User", schema);
-
-  // const user = new User({
-  //   name,
-  //   email,
-  // });
+  try {
+    const result = await user.save();
+    console.log(result + "User Created");
+  } catch (err) {
+    console.log("Error Occured");
+    console.log(err);
+  }
 
   // try {
-  //   const result = await user.save();
-  //   console.log(result + "User Created");
-  // } catch (err) {
-  //   console.log(err);
+  //   await User.create({ name, email });
+  //   console.log("User Created");
+  // } catch (error) {
+  //   console.log("Error Occured");
+  //   console.log(error);
   // }
-
-  await User.create({ name, email });
-
-  console.log("User Created");
 };
 
-// const createUsers = async () => {
-//   await createUser("John", "johnDoe3@gmail.com");
-// };
+const createUsers = async () => {
+  // get random number between 1-100
+  const num = Math.floor(Math.random() * 1000) + 1;
+  await createUser("John", `johnDoe${num}@gmail.com`);
+};
 
 // createUsers();
 
-// createUser("John", "johnDoe6@gmail.com");
+// createUser("John", "johnDoe2@gmail.com");
