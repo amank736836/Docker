@@ -192,11 +192,20 @@
 // docker run --name <container-name> <image-name>
 // this command runs the image in the docker container and sets the name of the container
 
+// docker network create <network-name>
+// this command creates a network with the given name
+
 // docker run --network <network-name> <image-name>
 // this command runs the image in the docker container and sets the network of the container
 
 // docker run --network-alias <alias-name> <image-name>
 // this command runs the image in the docker container and sets the network alias of the container
+
+// docker run --hostname <host-name> <image-name>
+// this command runs the image in the docker container and sets the hostname of the container
+
+// docker run --user <user-name> <image-name>
+// this command runs the image in the docker container and sets the user of the container
 
 // docker run --restart <restart-policy> <image-name>
 // this command runs the image in the docker container and sets the restart policy of the container
@@ -234,3 +243,323 @@
 
 // docker run --help
 // this command shows the help for the run command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker exec -it <container-id> <command>
+// this command executes the given command in the running container with the given id
+
+// docker exec -it <container-name> <command>
+// this command executes the given command in the running container with the given name
+
+// docker exec -it <container-id> /bin/bash
+// this command opens the terminal in the running container with the given id
+
+// docker exec -it <container-name> /bin/bash
+// this command opens the terminal in the running container with the given name
+
+// docker exec --help
+// this command shows the help for the exec command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker logs <container-id>
+// this command shows the logs of the running container with the given id
+
+// docker logs <container-name>
+// this command shows the logs of the running container with the given name
+
+// docker logs -f <container-id>
+// this command shows the logs of the running container with the given id and follows the logs
+
+// docker logs -f <container-name>
+// this command shows the logs of the running container with the given name and follows the logs
+
+// docker logs --help
+// this command shows the help for the logs command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker cp <container-id>:<path> <path>
+// this command copies the file from the running container with the given id to the local machine
+
+// docker cp <container-name>:<path> <path>
+// this command copies the file from the running container with the given name to the local machine
+
+// docker cp <path> <container-id>:<path>
+// this command copies the file from the local machine to the running container with the given id
+
+// docker cp <path> <container-name>:<path>
+// this command copies the file from the local machine to the running container with the given name
+
+// docker cp --help
+// this command shows the help for the cp command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker network ls
+// this command shows all the networks available in the local machine
+
+// docker network inspect <network-name>
+// this command shows the details of the network with the given name
+
+// docker network create <network-name>
+// this command creates a network with the given name
+
+// docker network rm <network-name>
+// this command removes the network with the given name
+
+// docker network --help
+// this command shows the help for the network command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker network connect <network-name> <container-id>
+// this command connects the running container with the given id to the network with the given name
+
+// docker network connect <network-name> <container-name>
+// this command connects the running container with the given name to the network with the given name
+
+// docker network disconnect <network-name> <container-id>
+// this command disconnects the running container with the given id from the network with the given name
+
+// docker network disconnect <network-name> <container-name>
+// this command disconnects the running container with the given name from the network with the given name
+
+// docker network --help
+// this command shows the help for the network command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker volume ls
+// this command shows all the volumes available in the local machine
+
+// docker volume inspect <volume-name>
+// this command shows the details of the volume with the given name
+
+// docker volume create <volume-name>
+// this command creates a volume with the given name
+
+// docker volume rm <volume-name>
+// this command removes the volume with the given name
+
+// docker volume --help
+// this command shows the help for the volume command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker-compose
+// this command shows all the available commands in the docker-compose
+
+// docker-compose version
+// this command shows the version of the docker-compose
+
+// docker-compose config
+// this command shows the configuration of the services defined in the docker-compose file
+
+// docker-compose --help
+// this command shows the help for the docker-compose
+
+// docker-compose up
+// this command starts the services defined in the docker-compose file
+
+// docker-compose up -d
+// this command starts the services defined in the docker-compose file in the background
+
+// docker-compose down
+// this command stops the services defined in the docker-compose file
+
+// docker-compose ps
+// this command shows the status of the services defined in the docker-compose file
+
+// docker-compose logs
+// this command shows the logs of the services defined in the docker-compose file
+
+// docker-compose exec <service-name> <command>
+// this command executes the given command in the running service with the given name
+
+// docker-compose exec <service-name> /bin/bash
+// this command opens the terminal in the running service with the given name
+
+// docker-compose build
+// this command builds the services defined in the docker-compose file
+
+// docker-compose pull
+// this command pulls the images of the services defined in the docker-compose file
+
+// docker-compose restart
+// this command restarts the services defined in the docker-compose file
+
+// docker-compose rm
+// this command removes the services defined in the docker-compose file
+
+// docker-compose start
+// this command starts the services defined in the docker-compose file
+
+// docker-compose stop
+// this command stops the services defined in the docker-compose file
+
+// docker-compose --version
+// this command shows the version of the docker-compose
+
+// docker-compose config
+// this command shows the configuration of the services defined in the docker-compose file
+
+// docker-compose events
+// this command shows the events of the services defined in the docker-compose file
+
+// docker-compose help
+// this command shows the help for the docker-compose
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker inspect
+// this command shows the details of the running containers, images, networks and volumes
+
+// docker inspect <container-id>
+// this command shows the details of the running container with the given id
+
+// docker inspect <container-name>
+// this command shows the details of the running container with the given name
+
+// docker inspect <image-id>
+// this command shows the details of the image with the given id
+
+// docker inspect <image-name>
+// this command shows the details of the image with the given name
+
+// docker inspect <network-name>
+// this command shows the details of the network with the given name
+
+// docker inspect <volume-name>
+// this command shows the details of the volume with the given name
+
+// docker inspect --help
+// this command shows the help for the inspect command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker stats
+// this command shows the statistics of the running containers
+
+// docker stats <container-id>
+// this command shows the statistics of the running container with the given id
+
+// docker stats <container-name>
+// this command shows the statistics of the running container with the given name
+
+// docker stats --help
+// this command shows the help for the stats command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// docker system
+// this command shows all the available commands in the docker system
+
+// docker system df
+// this command shows the disk usage of the docker
+
+// docker system prune
+// this command removes the unused data from the docker
+
+// docker system prune -a
+// this command removes the unused images and containers from the docker
+
+// docker system prune -f
+// this command removes the unused data from the docker without confirmation
+
+// docker system prune --help
+// this command shows the help for the system prune command
+
+// docker system --help
+// this command shows the help for the system command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker version
+// this command shows the version of the docker
+
+// docker info
+// this command shows the information of the docker
+
+// docker --help
+// this command shows the help for the docker
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker login
+// this command logs in to the docker hub
+
+// docker logout
+// this command logs out from the docker hub
+
+// docker search <image-name>
+// this command searches the image with the given name in the docker hub
+
+// docker search --help
+// this command shows the help for the search command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker tag <image-id> <image-name>:<tag>
+// this command tags the image with the given id with the given name and tag
+
+// docker tag <image-name> <image-name>:<tag>
+// this command tags the image with the given name with the given tag
+
+// docker tag --help
+// this command shows the help for the tag command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker push <image-name>
+// this command pushes the image with the given name to the docker hub
+
+// docker push <image-name>:<tag>
+// this command pushes the image with the given name and tag to the docker hub
+
+// docker push --help
+// this command shows the help for the push command
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// docker pull <image-name>
+// this command pulls the image with the given name from the docker hub
+
+// docker pull <image-name>:<tag>
+// this command pulls the image with the given name and tag from the docker hub
+
+// docker pull --help
+// this command shows the help for the pull command
+
+
+////////////////////////////////////////////////////////////////////////////////
