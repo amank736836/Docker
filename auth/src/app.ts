@@ -21,7 +21,7 @@ app.use(morgan('dev'))
 
 
   app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    res.send('Hello, Auth!');
   });
 
   // your routes here
