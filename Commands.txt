@@ -45,6 +45,33 @@
 // docker rm <container-name>
 // this command removes the container with the given name
 
+// docker rm -f <container-id>
+// this command removes the container with the given id forcefully
+
+// docker rm -f <container-name>
+// this command removes the container with the given name forcefully
+
+// docker rm -v <container-id>
+// this command removes the container with the given id and the associated volumes
+
+// docker rm -v <container-name>
+// this command removes the container with the given name and the associated volumes
+
+// docker rm -fv <container-id>
+// this command removes the container with the given id and the associated volumes forcefully
+
+// docker rm -fv <container-name>
+// this command removes the container with the given name and the associated volumes forcefully
+
+// docker rm -f $(docker ps -aq)
+// this command removes all the containers forcefully
+
+// docker rm -fv $(docker ps -aq)
+// this command removes all the containers and the associated volumes forcefully
+
+// docker rm --help
+// this command shows the help for the rm command
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -191,9 +218,6 @@
 
 // docker run --name <container-name> <image-name>
 // this command runs the image in the docker container and sets the name of the container
-
-// docker network create <network-name>
-// this command creates a network with the given name
 
 // docker run --network <network-name> <image-name>
 // this command runs the image in the docker container and sets the network of the container
