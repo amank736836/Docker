@@ -38,5 +38,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
+    environment:
+      - SERVER_URL=http://nodeapp:4000
     depends_on:
       - auth
+    # volumes:
+      # - ./client:/app
