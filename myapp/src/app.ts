@@ -54,6 +54,7 @@ app.post(
 
 app.get("/delete", (req, res) => {
   mongoose.connection.dropDatabase();
+  console.log("Database Deleted");
   res.json({
     success: true,
     message: "Database Deleted",
