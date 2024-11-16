@@ -1,12 +1,15 @@
-version: "3.8"
 name: dockertut
 services:
   nodeapp:
-    image: dockertutapp
+    build:
+      context: ./myapp
+      dockerfile: Dockerfile
     container_name: dockertutapp
     environment:
       - PORT=4000
       - MONGO_URI=mongodb://admin:password@mongodb
+    env_file:
+      - .env.sample
     ports:
       - 4000:4000
     depends_on:
@@ -19,8 +22,10 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
-  authservice:
-    image: dockertutauth
+  auth:
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
     ports:
       - 5000:5000
     depends_on:
@@ -28,8 +33,10 @@ services:
     environment:
       - PORT=5000
   client:
-    image: dockertutclient
+    build:
+      context: ./client
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
     depends_on:
-      - authservice
+      - auth
