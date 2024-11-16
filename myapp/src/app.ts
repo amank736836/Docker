@@ -88,7 +88,7 @@ const schema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("User", schema);
+const User = mongoose.models.User || mongoose.model("User", schema);
 
 const createUser = async (name: string, email: string) => {
   console.log("Creating User");
