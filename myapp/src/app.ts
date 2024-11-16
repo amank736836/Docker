@@ -3,8 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
-import { errorMiddleware } from "./middlewares/error.js";
-import { console } from "inspector";
+import { errorMiddleware, TryCatch } from "./middlewares/error.js";
 
 dotenv.config({ path: "./.env" });
 
@@ -33,13 +32,32 @@ app.use(morgan("dev"));
 app.get("/", async (req, res) => {
   // createUsers();
   const num = Math.floor(Math.random() * 1000) + 1;
-  await createUser("John", `johnDoe${num}@gmail.com`);
-  res.send(`Hello World! User Created With Email: johnDoe${num}@gmail.com`);
+  const message = await createUser("John", `johnDoe${num}@gmail.com`);
+  res.send(`Hello World! ${message} With Email: johnDoe${num}@gmail.com`);
 });
+
+app.post(
+  "/api/newuser",
+  TryCatch(async (req, res) => {
+    const { name, email } = req.body;
+    if (!name || !email) {
+      throw new Error("Name and Email are required");
+    }
+
+    const message = await createUser(name as string, email as string);
+    res.json({
+      success: true,
+      message,
+    });
+  })
+);
 
 app.get("/delete", (req, res) => {
   mongoose.connection.dropDatabase();
-  res.send("Database Deleted");
+  res.json({
+    success: true,
+    message: "Database Deleted",
+  });
 });
 
 // your routes here
@@ -72,6 +90,8 @@ const schema = new mongoose.Schema({
 const User = mongoose.model("User", schema);
 
 const createUser = async (name: string, email: string) => {
+  console.log("Creating User");
+
   const user = new User({
     name,
     email,
@@ -80,9 +100,11 @@ const createUser = async (name: string, email: string) => {
   try {
     const result = await user.save();
     console.log(result + "User Created");
+    return "User Created";
   } catch (err) {
     console.log("Error Occured");
     console.log(err);
+    return JSON.stringify(err);
   }
 
   // try {
