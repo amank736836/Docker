@@ -14,6 +14,15 @@ services:
       - 4000:4000
     depends_on:
       - mongodb
+    develop:
+      watch:
+        - path: ./myapp/package.json
+          action: rebuild
+        - path: ./myapp/package-lock.json
+          action: rebuild
+        - path: ./myapp
+          target: /usr/src/app
+          action: sync
   mongodb:
     image: mongo
     container_name: dockertutdb
@@ -38,6 +47,15 @@ services:
       - nodeapp
     environment:
       - PORT=5000
+    develop:
+      watch:
+        - path: ./auth/package.json
+          action: rebuild
+        - path: ./auth/package-lock.json
+          action: rebuild
+        - path: ./auth
+          target: /usr/src/app
+          action: sync
   client:
     build:
       context: ./client
@@ -50,8 +68,18 @@ services:
       - SERVER_URL=http://nodeapp:4000
     depends_on:
       - auth
-    volumes:
-      - ./client:/app
+    develop:
+      watch:
+        - path: ./client/package.json
+          action: rebuild
+        - path: ./client/package-lock.json
+          action: rebuild
+        - path: ./client
+          target: /app
+          action: sync #development
+          # action: rebuild #build
+    # volumes:
+    # - ./client:/app
 volumes:
   # dockertutdb:
   dockertutdata:
