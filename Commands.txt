@@ -446,6 +446,84 @@
 // docker-compose events
 // this command shows the events of the services defined in the docker-compose file
 
+// docker-compose kill
+// this command kills the services defined in the docker-compose file
+
+// docker-compose pause
+// this command pauses the services defined in the docker-compose file
+
+// docker-compose unpause
+// this command unpauses the services defined in the docker-compose file
+
+// docker-compose top
+// this command shows the top of the services defined in the docker-compose file
+
+// docker-compose up --build
+// this command starts the services defined in the docker-compose file and builds the services
+
+// docker-compose up --force-recreate
+// this command starts the services defined in the docker-compose file and recreates the services
+
+// docker-compose up --no-deps
+// this command starts the services defined in the docker-compose file without the dependencies
+
+// docker-compose up --no-start
+// this command starts the services defined in the docker-compose file without starting the services
+
+// docker-compose up --quiet-pull
+// this command starts the services defined in the docker-compose file quietly
+
+// docker-compose up --remove-orphans
+// this command starts the services defined in the docker-compose file and removes the orphans
+
+// docker-compose up --scale <service-name>=<number>
+// this command starts the services defined in the docker-compose file with the given number of instances
+
+// docker-compose up --timeout <timeout>
+// this command starts the services defined in the docker-compose file with the given timeout
+
+// docker-compose up --help
+// this command shows the help for the up command
+
+// docker-compose down --help
+// this command shows the help for the down command
+
+// docker-compose ps --help
+// this command shows the help for the ps command
+
+// docker-compose logs --help
+// this command shows the help for the logs command
+
+// docker-compose exec --help
+// this command shows the help for the exec command
+
+// docker-compose build --help
+// this command shows the help for the build command
+
+// docker-compose pull --help
+// this command shows the help for the pull command
+
+// docker-compose restart --help
+// this command shows the help for the restart command
+
+// docker-compose rm --help
+// this command shows the help for the rm command
+
+// docker-compose start --help
+// this command shows the help for the start command
+
+// docker-compose stop --help
+// this command shows the help for the stop command
+
+// docker-compose --version
+// this command shows the version of the docker-compose
+
+// docker-compose watch <service-name>
+// this command watches the service with the given name
+
+// docker-compose watch --help
+// this command shows the help for the watch command
+
 // docker-compose help
 // this command shows the help for the docker-compose
 
