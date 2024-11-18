@@ -3,7 +3,8 @@ services:
   nodeapp:
     build:
       context: ./myapp
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile # build
+      dockerfile: development.Dockerfile # dev
     container_name: dockertutapp
     environment:
       - PORT=4000
@@ -22,7 +23,8 @@ services:
           action: rebuild
         - path: ./myapp
           target: /usr/src/app
-          action: sync
+          # action: rebuild #build
+          action: sync #dev
   mongodb:
     image: mongo
     container_name: dockertutdb
@@ -39,7 +41,8 @@ services:
   auth:
     build:
       context: ./auth
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile #  build
+      dockerfile: development.Dockerfile # dev
     container_name: dockertutauth
     ports:
       - 5000:5000
@@ -55,7 +58,8 @@ services:
           action: rebuild
         - path: ./auth
           target: /usr/src/app
-          action: sync
+          # action: rebuild #build
+          action: sync #dev
   client:
     build:
       context: ./client
@@ -75,11 +79,11 @@ services:
         - path: ./client/package-lock.json
           action: rebuild
         - path: ./client
-          target: /app
-          action: sync #development
+          target: /usr/src/app
           # action: rebuild #build
+          action: sync #dev
     # volumes:
-    # - ./client:/app
+    # - ./client:/app # mount local directory to container
 volumes:
   # dockertutdb:
   dockertutdata:
