@@ -23,7 +23,10 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
-      - ./data:/data/db
+      - dockertutdata:/data/db
+      # - dockertutdb:/data/db
+      # - ./data:/data/db
+
   auth:
     build:
       context: ./auth
@@ -38,7 +41,8 @@ services:
   client:
     build:
       context: ./client
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile # build
+      dockerfile: development.Dockerfile # dev
     container_name: dockertutclient
     ports:
       - 3000:3000
@@ -46,5 +50,9 @@ services:
       - SERVER_URL=http://nodeapp:4000
     depends_on:
       - auth
-    # volumes:
-      # - ./client:/app
+    volumes:
+      - ./client:/app
+volumes:
+  # dockertutdb:
+  dockertutdata:
+    driver: local
