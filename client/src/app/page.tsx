@@ -46,7 +46,7 @@ export default function Home() {
               console.error(error);
             }
           }}
-          className="flex flex-col items-center gap-4 bg-yellow-400"
+          className="flex flex-col items-center gap-4 bg-red-400"
         >
           <input
             type="text"
